@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <input v-model="inputValue" type="text" />
+        <button v-on:click="handleBtnClick">提交</button>
+        {{inputValue}}
+        <ul>
+            <li v-for="item in list">{{item}}</li>    
+        </ul>
+    </div>    
+    <script type="text/javascript">
+       var vm =  new Vue({
+            el: '#root',
+            data: {
+                inputValue: '123',
+                list: ['456']
+                 },
+                 methods: {
+                     handleBtnClick : function(){
+                         console.log(this.$data.list);
+                         console.log(vm.inputValue);
+                     }
+                 }
+        })
+        
+    </script>
+</body>
+</html>

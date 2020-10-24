@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="root">
+       <child  @click="handleClick"></child>
+    </div>  
+<script type="text/javascript">
+    Vue.component('child',{
+        template: ' <div @click="handleChildClick">Child</div>',
+        methods: {
+            handleChildClick: function(){
+                this.$emit('click');
+            }
+         } 
+        })
+    var vm = new Vue({
+        el: '#root',
+        data:{},
+        methods: {
+            handleClick: function(){
+                alert('click');
+            }
+        } 
+    })
+</script>
+</body>
+</html>

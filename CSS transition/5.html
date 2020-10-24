@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件化开发TodoList</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .fade-enter-active{
+            transform-origin: left;
+            animation-name: bounce-in;
+            animation-duration: 4s;
+        }
+        .fade-leave-active{
+            transform-origin: left;
+            animation-name: bounce-in;
+            animation-duration: 4s;
+        }
+        @keyframes bounce-in{
+            0%{
+                transition: scale(0);
+            }
+            50%{
+                transition: scale(2);
+            }
+            100%{
+                transition: scale(1);
+            }
+        }
+        .Hello{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <transition name="fade"
+                    enter-active-class="enter">
+            <div class="hello" v-show="show">Hello World</div>
+        </transition>
+     <button @click="handleBtnClick">change</button>  
+     </div>  
+    </div>    
+    <script type="text/javascript">    
+    var  vm = new Vue({
+        el: '#root',
+        data: {  
+           show: false
+        },
+        methods: {
+            handleBtnClick: function(){
+                this.show = !this.show;
+            }
+        }
+    });
+    </script>
+</body>
+</html>

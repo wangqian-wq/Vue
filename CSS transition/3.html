@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件化开发TodoList</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style type="text/css">
+        .v-leave-to{
+            opacity: 0;
+        }
+        .v-leave-active{
+            transition: opacity 10s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <transition>
+            <div v-if="show">Hello World</div>
+        </transition>
+     <button @click="handleBtnClick">change</button>  
+     </div>  
+    </div>    
+    <script type="text/javascript">    
+    var  vm = new Vue({
+        el: '#root',
+        data: {
+           show: true
+        },
+        methods: {
+            handleBtnClick: function(){
+                this.show = !this.show;
+            }
+        }
+    });
+    </script>
+</body>
+</html>

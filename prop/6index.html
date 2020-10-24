@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="root">
+       <child content="12345"></child>
+    </div>
+    
+<script type="text/javascript">
+    Vue.component('child',{
+        props: {
+           content:{
+               validator: function(value){
+                   return ['success', '12345', 123].indexOf(value) !== -1;
+               }
+           }
+        },
+        template: '<div>{{content}}</div>',  
+    })
+    var vm = new Vue({
+        el: '#root',
+        data: {} 
+    })
+</script>
+</body>
+</html>
